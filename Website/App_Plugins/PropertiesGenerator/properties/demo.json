@@ -1,0 +1,197 @@
+﻿{
+  "sections": [
+    {
+      "name": "Validations",
+      "alias": "validations",
+      "properties": [
+        {
+          "name": "Required",
+          "alias": "required",
+          "type": "Textbox",
+          "validate": {
+            "required": true,
+            "requiredMessage": "this field is required"
+          }
+        },
+        {
+          "name": "Regex",
+          "alias": "regex",
+          "type": "Textbox",
+          "validate": {
+            "regex": "^e",
+            "regexMessage": "Must start with 'e"
+          }
+        },
+        {
+          "name": "Custom function",
+          "alias": "customFunction",
+          "type": "Textbox",
+          "validate": {
+            "customFunction": "function(val, model) { if(val != 'a') return 'value mast be \"a\"'; return null; }"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Objects",
+      "alias": "objects",
+      "properties": [
+        {
+          "name": "Textbox",
+          "alias": "textbox",
+          "type": "textbox"
+        },
+        {
+          "name": "Textarea",
+          "alias": "textarea",
+          "type": "textarea"
+        },
+        {
+          "name": "Checkbox",
+          "alias": "checkbox",
+          "type": "checkbox"
+        },
+        {
+          "name": "Link",
+          "alias": "link",
+          "type": "link"
+        },
+        {
+          "name": "Image",
+          "alias": "image",
+          "type": "image",
+          "folder": "Icons"
+        },
+        {
+          "name": "Content",
+          "alias": "content",
+          "type": "content"
+        },
+        {
+          "name": "Video",
+          "alias": "Video",
+          "type": "video"
+        },
+        {
+          "name": "Rte",
+          "alias": "rte",
+          "type": "rte",
+          "config": "all"
+        },
+        {
+          "name": "Radio",
+          "alias": "radio",
+          "type": "radio",
+          "prevalues": [
+            {
+              "name": "Dynamic dropdown",
+              "alias": "dynamic"
+            },
+            {
+              "name": "Static",
+              "alias": "static"
+            }
+          ]
+        },
+        {
+          "name": "Dropdown",
+          "alias": "dropdown",
+          "type": "dropdown",
+          "datasource": "GetDemo",
+          "show": "scope.model.radio == 'dynamic'"
+        },
+        {
+          "name": "Dropdown",
+          "alias": "dropdown",
+          "type": "dropdown",
+          "datasource": [
+            {
+              "label": "One s.",
+              "value": 1
+            },
+            {
+              "label": "Two s.",
+              "value": 2
+            },
+            {
+              "label": "Three s.",
+              "value": 3
+            }
+          ],
+          "show": "scope.model.radio == 'static'"
+        },
+        {
+          "name": "Date",
+          "alias": "date",
+          "type": "date",
+          "validate": {
+            "format": "dd.MM.yyyy"
+          }
+        },
+        {
+          "name": "Integer",
+          "alias": "integer",
+          "type": "integer"
+        },
+        {
+          "name": "Decimal",
+          "alias": "decimal",
+          "type": "decimal"
+        },
+        {
+          "name": "Embed",
+          "alias": "embed",
+          "type": "embed"
+        }
+      ]
+    },
+    {
+      "name": "Collections",
+      "alias": "collections",
+      "properties": [
+        {
+          "name": "List",
+          "alias": "list",
+          "type": "list",
+          "headerProperty": "header",
+          "properties": [
+            {
+              "name": "Header",
+              "alias": "header",
+              "type": "textbox"
+            },
+            {
+              "name": "Css Image",
+              "alias": "cssImage",
+              "type": "image",
+              "css": "transparent wide"
+            }
+          ]
+        },
+        {
+          "name": "List withmin/max",
+          "alias": "listMinMax",
+          "type": "list",
+          "headerProperty": "image.alt",
+          "validate": {
+            "min": { "value": 2 },
+            "max": { "value": 4 }
+          },
+          "properties": [
+            {
+              "name": "Header",
+              "alias": "header",
+              "type": "textbox"
+            },
+            {
+              "name": "Css Image",
+              "alias": "cssImage",
+              "type": "image",
+              "css": "transparent wide"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

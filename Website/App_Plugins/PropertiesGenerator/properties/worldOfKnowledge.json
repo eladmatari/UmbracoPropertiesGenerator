@@ -1,0 +1,106 @@
+﻿{
+  "sections": [
+    {
+      "name": "Data",
+      "alias": "data",
+      "properties": [
+        {
+          "name": "Header",
+          "alias": "header",
+          "type": "textbox"
+        },
+        {
+          "name": "Description",
+          "alias": "description",
+          "type": "textarea"
+        },
+        {
+          "name": "Forums header",
+          "alias": "forumsHeader",
+          "type": "textbox"
+        },
+        {
+          "name": "Forums link",
+          "alias": "forumsLink",
+          "type": "link"
+        },
+        {
+          "name": "Forums items",
+          "alias": "forumsItems",
+          "type": "list",
+          "headerProperty": "name",
+          "validate": {
+            "min": { "value": 2 },
+            "max": { "value": 2 }
+          },
+          "properties": [
+            {
+              "name": "Image",
+              "alias": "image",
+              "type": "image",
+              "folder": "avatars"
+            },
+            {
+              "name": "Name",
+              "alias": "name",
+              "type": "textbox"
+            },
+            {
+              "name": "Description",
+              "alias": "description",
+              "type": "textbox"
+            },
+            {
+              "name": "Link",
+              "alias": "link",
+              "type": "link"
+            }
+          ]
+        },
+        {
+          "name": "Blogs header",
+          "alias": "blogsHeader",
+          "type": "textbox"
+        },
+        {
+          "name": "Blogs link",
+          "alias": "blogsLink",
+          "type": "link"
+        },
+        {
+          "name": "Blogs items",
+          "alias": "blogsItems",
+          "type": "list",
+          "headerProperty": "name",
+          "validate": {
+            "min": { "value": 2 },
+            "max": { "value": 2 }
+          },
+          "properties": [
+            {
+              "name": "Image",
+              "alias": "image",
+              "type": "image",
+              "folder": "avatars"
+            },
+            {
+              "name": "Name",
+              "alias": "name",
+              "type": "textbox"
+            },
+            {
+              "name": "Description",
+              "alias": "description",
+              "type": "textbox"
+            },
+            {
+              "name": "Link",
+              "alias": "link",
+              "type": "link"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

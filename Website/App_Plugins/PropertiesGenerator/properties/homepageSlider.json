@@ -1,0 +1,36 @@
+﻿{
+  "sections": [
+    {
+      "name": "Slider",
+      "alias": "slider",
+      "properties": [
+        {
+          "name": "Is show video",
+          "alias": "isShowVideo",
+          "type": "checkbox"
+        },
+        {
+          "name": "Video",
+          "alias": "video",
+          "type": "video",
+          "folder": "slides"
+        },
+        {
+          "name": "Images",
+          "alias": "images",
+          "type": "list",
+          "headerProperty": "image.alt",
+          "properties": [
+            {
+              "name": "Image",
+              "alias": "image",
+              "type": "image",
+              "css": "slider",
+              "folder": "slides"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

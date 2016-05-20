@@ -1,0 +1,22 @@
+﻿{
+  "sections": [
+    {
+      "name": "Data",
+      "alias": "data",
+      "properties": [
+        {
+          "name": "Image",
+          "alias": "image",
+          "type": "image",
+          "css": "slider",
+          "folder": "slides"
+        },
+        {
+          "name": "Text",
+          "alias": "text",
+          "type": "rte"
+        }
+      ]
+    }
+  ]
+}

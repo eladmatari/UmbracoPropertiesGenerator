@@ -1,0 +1,30 @@
+﻿{
+  "sections": [
+    {
+      "name": "Data",
+      "alias": "data",
+      "properties": [
+        {
+          "name": "Image",
+          "alias": "image",
+          "type": "image"
+        },
+        {
+          "name": "Header",
+          "alias": "header",
+          "type": "textbox"
+        },
+        {
+          "name": "Content",
+          "alias": "content",
+          "type": "rte"
+        },
+        {
+          "name": "Link",
+          "alias": "link",
+          "type": "link"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+﻿{
+  "propertyEditors": 
+  [
+    {
+      "alias": "propertiesGenerator",
+      "name": "Properties generator",
+      "isParameterEditor": true,
+      "hideLabel": true,
+      "editor": {
+        "view": "~/App_Plugins/PropertiesGenerator/PropertiesGenerator.html",
+        "valueType": "JSON"
+      }
+    }
+  ],
+  "javascript": [
+    "~/App_Plugins/PropertiesGenerator/PropertiesGenerator.js"
+  ]
+}

@@ -1,0 +1,67 @@
+﻿{
+  "sections": [
+    {
+      "name": "Articles",
+      "alias": "articles",
+      "properties": [
+        {
+          "name": "Items",
+          "alias": "items",
+          "type": "list",
+          "validate": {
+            "min": { "value": 2 },
+            "max": { "value": 2 }
+          },
+          "headerProperty": "header",
+          "properties": [
+            {
+              "name": "Header",
+              "alias": "header",
+              "type": "textbox"
+            },
+            {
+              "name": "Sub header",
+              "alias": "subHeader",
+              "type": "textbox"
+            },
+            {
+              "name": "Description",
+              "alias": "description",
+              "type": "textarea"
+            },
+            {
+              "name": "Show More details",
+              "alias": "showLink",
+              "type": "checkbox"
+            },
+            {
+              "name": "More details",
+              "alias": "moreDetails",
+              "type": "link",
+              "show": "scope.model.showLink"
+            },
+            {
+              "name": "Show purpose button",
+              "alias": "showPurpose",
+              "type": "checkbox"
+            },
+            {
+              "name": "Purpose",
+              "alias": "purpose",
+              "type": "dropdown",
+              "datasource": "getContributionPurposes",
+              "css": "rtl",
+              "show": "scope.model.showPurpose"
+            },
+            {
+              "name": "Image",
+              "alias": "image",
+              "type": "image",
+              "folder": "general"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

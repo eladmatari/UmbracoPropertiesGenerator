@@ -1,0 +1,222 @@
+﻿{
+  "sections": [
+    {
+      "name": "כתבו עלינו",
+      "alias": "articles",
+      "properties": [
+        {
+          "name": "Header",
+          "alias": "header",
+          "type": "textbox"
+        },
+        {
+          "name": "Link",
+          "alias": "link",
+          "type": "link"
+        },
+        {
+          "name": "Article 1",
+          "type": "header"
+        },
+        {
+          "name": "Header",
+          "alias": "article1Header",
+          "type": "textbox"
+        },
+        {
+          "name": "Date",
+          "alias": "article1Date",
+          "type": "textbox"
+        },
+        {
+          "name": "Description",
+          "alias": "article1Description",
+          "type": "textarea"
+        },
+        {
+          "name": "Display",
+          "alias": "article1Display",
+          "type": "radio",
+          "prevalues": [
+            {
+              "name": "Image",
+              "alias": "image"
+            },
+            {
+              "name": "Youtube",
+              "alias": "youtube"
+            }
+          ]
+        },
+        {
+          "name": "Image",
+          "alias": "article1Image",
+          "type": "image",
+          "folder": "general"
+        },
+        {
+          "name": "Youtube",
+          "alias": "article1Youtube",
+          "type": "textbox"
+        },
+        {
+          "name": "Link",
+          "alias": "article1Link",
+          "type": "link"
+        },
+        {
+          "name": "Article 2",
+          "type": "header"
+        },
+        {
+          "name": "Header",
+          "alias": "article2Header",
+          "type": "textbox"
+        },
+        {
+          "name": "Date",
+          "alias": "article2Date",
+          "type": "textbox"
+        },
+        {
+          "name": "Description",
+          "alias": "article2Description",
+          "type": "textarea"
+        },
+        {
+          "name": "Display",
+          "alias": "article2Display",
+          "type": "radio",
+          "prevalues": [
+            {
+              "name": "Image",
+              "alias": "image"
+            },
+            {
+              "name": "Youtube",
+              "alias": "youtube"
+            }
+          ]
+        },
+        {
+          "name": "Image",
+          "alias": "article2Image",
+          "type": "image",
+          "folder": "general"
+        },
+        {
+          "name": "Youtube",
+          "alias": "article2Youtube",
+          "type": "textbox"
+        },
+        {
+          "name": "Link",
+          "alias": "article2Link",
+          "type": "link"
+        }
+      ]
+    },
+    {
+      "name": "עולם של ידע",
+      "alias": "knowledge",
+      "properties": [
+        {
+          "name": "Header",
+          "alias": "header",
+          "type": "textbox"
+        },
+        {
+          "name": "Description",
+          "alias": "description",
+          "type": "textarea"
+        },
+        {
+          "name": "Forums header",
+          "alias": "forumsHeader",
+          "type": "textbox"
+        },
+        {
+          "name": "Forums link",
+          "alias": "forumsLink",
+          "type": "link"
+        },
+        {
+          "name": "Forums items",
+          "alias": "forumsItems",
+          "type": "list",
+          "headerProperty": "name",
+          "validate": {
+            "min": { "value": 2 },
+            "max": { "value": 2 }
+          },
+          "properties": [
+            {
+              "name": "Image",
+              "alias": "image",
+              "type": "image",
+              "folder": "avatars"
+            },
+            {
+              "name": "Name",
+              "alias": "name",
+              "type": "textbox"
+            },
+            {
+              "name": "Description",
+              "alias": "description",
+              "type": "textbox"
+            },
+            {
+              "name": "Link",
+              "alias": "link",
+              "type": "link"
+            }
+          ]
+        },
+        {
+          "name": "Blogs header",
+          "alias": "blogsHeader",
+          "type": "textbox"
+        },
+        {
+          "name": "Blogs link",
+          "alias": "blogsLink",
+          "type": "link"
+        },
+        {
+          "name": "Blogs items",
+          "alias": "blogsItems",
+          "type": "list",
+          "headerProperty": "name",
+          "validate": {
+            "min": { "value": 2 },
+            "max": { "value": 2 }
+          },
+          "properties": [
+            {
+              "name": "Image",
+              "alias": "image",
+              "type": "image",
+              "folder": "avatars"
+            },
+            {
+              "name": "Name",
+              "alias": "name",
+              "type": "textbox"
+            },
+            {
+              "name": "Description",
+              "alias": "description",
+              "type": "textbox"
+            },
+            {
+              "name": "Link",
+              "alias": "link",
+              "type": "link"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

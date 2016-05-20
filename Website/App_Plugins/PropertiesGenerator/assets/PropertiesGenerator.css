@@ -1,0 +1,191 @@
+.propertiesGenerator .field { margin-top: 10px; }
+.propertiesGenerator .field > label { min-width: 100px;vertical-align: top; }
+.propertiesGenerator label { padding:0 10px; }
+.propertiesGenerator hr { border-top: 1px dashed #D9D9D9; }
+.propertiesGenerator .clear { clear:both; }
+
+.propertiesGenerator .fieldListItem {
+    border-top: 1px solid #dbdbdb;
+    padding: 27px 0 5px 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.propertiesGenerator .fieldListItem > span {
+    right: 0;
+    left: 0;
+    color: #aaaaaa;
+    font-weight: bolder;
+    margin-bottom: 10px;
+    display: block;
+    margin-top: -22px;
+    padding: 0 5px;
+    text-align: center;
+}
+
+.propertiesGenerator .fieldListItem > span > i {
+    float: right;
+    margin-left: 5px;
+}
+
+.propertiesGenerator .fieldListItem > span:hover {
+    color: #2e8aea;
+}
+
+.propertiesGenerator .fieldList {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.propertiesGenerator .fieldList > ul {
+    list-style: none;
+    margin: 0 0 0 20px;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.propertiesGenerator .fieldListItem > div {
+    margin: 20px 0;
+}
+
+.propertiesGenerator .fieldList > i {
+    cursor: pointer;
+    color: #aaaaaa;
+    margin: 5px 4px;
+    float: right;
+}
+
+.propertiesGenerator .fieldList > i:hover {
+    color: #2e8aea;
+}
+
+.propertiesGenerator .field-image .picker { 
+    display: inline-block;
+    border: 1px solid #ccc;
+    color: #ccc;
+    height: 80px;
+    width: 80px;
+    text-align: center;
+    padding: 13px 0 0 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.propertiesGenerator .field-image .picker:hover {
+    color: #000;
+}
+
+.propertiesGenerator .field-image .imageContainer {
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom: 0;
+}
+
+.propertiesGenerator .field-image .imageContainer img {
+    width: 100%;
+    height: 100%;
+}
+
+.propertiesGenerator .field-image .imageContainer {
+    color: darkred;
+}
+
+.propertiesGenerator .field-image .imageContainer i {
+    position: absolute;
+    right: 5px;
+    background: #fff;
+    border-radius: 100%;
+    height: 16px;
+    top: 5px;
+    line-height: 16px;
+}
+
+.propertiesGenerator .field-image .imageContainer i:hover {
+    background-color: #ccc;
+}
+
+.propertiesGenerator .field.transparent .imageContainer {
+    background: url('../../../umbraco/assets/img/checkered-background.png');
+}
+
+.propertiesGenerator .field-image > div {
+    padding-left: 120px;
+    margin-top: 5px;
+}
+
+.propertiesGenerator .field-link > div {
+    margin-left: 120px;
+}
+
+.propertiesGenerator .field-link > div {
+    margin-top: 10px;
+}
+
+.propertiesGenerator .field-rte .mce-tinymce {
+    margin: 10px;
+    border: 1px solid #ccc !important;
+}
+
+.mce-fullscreen .propertiesGenerator .field-rte .mce-tinymce {
+    margin: 0;
+}
+
+.propertiesGenerator .field.wide .picker {
+    width: 70%;
+    height: 100px;
+}
+
+.propertiesGenerator .field-video {
+    display: inline-block;
+}
+
+.propertiesGenerator .field-video label {
+    padding: 0;
+    width: 55px;
+}
+
+.propertiesGenerator .field-video i, .propertiesGenerator .field-content i {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.propertiesGenerator .field-textarea textarea{
+    height: 100px;
+}
+
+.propertiesGenerator input.rtl, .propertiesGenerator textarea.rtl {
+    text-align: right;
+    direction: rtl;
+}
+
+.propertiesGenerator .field-radio {
+    display: inline-block;
+}
+
+.propertiesGenerator .field-embed > span + span {
+    margin-left: 20px;
+}
+
+.propertiesGenerator .field.rtl > span {
+    text-align: right;
+    direction: rtl;
+}
+
+.propertiesGenerator .field .error:not(.umb-control-group) {
+    display:none;
+}
+
+.propertiesGenerator .field.dirty .error,
+.show-validation.ng-invalid .propertiesGenerator .field .error {
+    color: #9d261d;
+    margin: 2px 10px;
+    display: inline-block;
+}
+
+.propertiesGenerator .field.invalid.dirty input[type="text"],
+.propertiesGenerator .field.invalid.dirty textarea,
+.show-validation.ng-invalid .propertiesGenerator .field.invalid input[type="text"],
+.show-validation.ng-invalid .propertiesGenerator .field.invalid textarea {
+    border: 1px solid #9d261d;
+}

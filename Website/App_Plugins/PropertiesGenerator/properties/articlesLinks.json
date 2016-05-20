@@ -1,0 +1,43 @@
+﻿{
+  "sections": [
+    {
+      "name": "Articles",
+      "alias": "articles",
+      "properties": [
+        {
+          "name": "Items",
+          "alias": "items",
+          "type": "list",
+          "validate": {
+            "min": { "value": 2 },
+            "max": { "value": 2 }
+          },
+          "headerProperty": "header",
+          "properties": [
+            {
+              "name": "Header",
+              "alias": "header",
+              "type": "textbox"
+            },
+            {
+              "name": "Description",
+              "alias": "description",
+              "type": "textarea"
+            },
+            {
+              "name": "Link",
+              "alias": "link",
+              "type": "link"
+            },
+            {
+              "name": "Image",
+              "alias": "image",
+              "type": "image",
+              "folder": "general"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

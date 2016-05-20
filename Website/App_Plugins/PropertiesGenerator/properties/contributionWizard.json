@@ -1,0 +1,103 @@
+﻿{
+  "sections": [
+    {
+      "name": "מטרת וסכום התרומה",
+      "alias": "purpose",
+      "properties": [
+        {
+          "name": "Header",
+          "alias": "header",
+          "type": "textbox"
+        }
+      ]
+    },
+    {
+      "name": "פרטים אישיים",
+      "alias": "personal",
+      "properties": [
+        {
+          "name": "Header",
+          "alias": "header",
+          "type": "textbox"
+        }
+      ]
+    },
+    {
+      "name": "פרטי תשלום",
+      "alias": "payment",
+      "properties": [
+        {
+          "name": "Header",
+          "alias": "header",
+          "type": "textbox"
+        }
+      ]
+    },
+    {
+      "name": "אישור עסקה",
+      "alias": "approval",
+      "properties": [
+        {
+          "name": "Header",
+          "alias": "header",
+          "type": "textbox"
+        },
+        {
+          "name": "Top image",
+          "alias": "topImage",
+          "type": "image",
+          "folder": "general"
+        },
+        {
+          "name": "Message header",
+          "alias": "messageHeader",
+          "type": "textbox"
+        },
+        {
+          "name": "Message",
+          "alias": "message",
+          "type": "rte"
+        }
+      ]
+    },
+    {
+      "name": "אפשרויות תשלום לא מקוונות",
+      "alias": "offline",
+      "properties": [
+        {
+          "name": "Header",
+          "alias": "header",
+          "type": "textbox"
+        },
+        {
+          "name": "Options",
+          "alias": "options",
+          "type": "list",
+          "validate": {
+            "min": { "value": 4 },
+            "max": { "value": 4 }
+          },
+          "headerProperty": "title",
+          "properties": [
+            {
+              "name": "Title",
+              "alias": "title",
+              "type": "textbox"
+            },
+            {
+              "name": "Icon",
+              "alias": "icon",
+              "type": "image",
+              "folder": "general"
+            },
+            {
+              "name": "Content",
+              "alias": "content",
+              "type": "rte"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+﻿{
+  "sections": [
+    {
+      "name": "Menu",
+      "alias": "menu",
+      "properties": [
+        {
+          "name": "Menu items",
+          "alias": "items",
+          "type": "list",
+          "headerProperty": "header",
+          "validate": {
+            "max": { "value": 5 }
+          },
+          "properties": [
+            {
+              "name": "Header",
+              "alias": "header",
+              "type": "textbox"
+            },
+            {
+              "name": "Sub menu items",
+              "alias": "items",
+              "type": "list",
+              "headerProperty": "link.caption",
+              "validate": {
+                "max": { "value": 4 }
+              },
+              "properties": [
+                {
+                  "name": "Link",
+                  "alias": "link",
+                  "type": "link"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Social",
+      "alias": "social",
+      "properties": [
+        {
+          "name": "Social Items",
+          "alias": "items",
+          "type": "list",
+          "headerProperty": "icon.alt",
+          "validate": {
+            "min": { "value": 3 },
+            "max": { "value": 3 }
+          },
+          "properties": [
+            {
+              "name": "Icon",
+              "alias": "icon",
+              "type": "image",
+              "folder": "general"
+            },
+            {
+              "name": "Link",
+              "alias": "link",
+              "type": "link"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

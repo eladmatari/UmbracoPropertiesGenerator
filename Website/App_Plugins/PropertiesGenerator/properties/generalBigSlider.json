@@ -1,0 +1,36 @@
+﻿{
+  "sections": [
+    {
+      "name": "Slider",
+      "alias": "slider",
+      "properties": [
+        {
+          "name": "Images",
+          "alias": "images",
+          "type": "list",
+          "headerProperty": "image.alt",
+          "properties": [
+            {
+              "name": "Image",
+              "alias": "image",
+              "type": "image",
+              "css": "slider",
+              "folder": "slides"
+            },
+            {
+              "name": "Text",
+              "alias": "text",
+              "type": "rte"
+            }
+          ]
+        },
+        {
+          "name": "Bottom text",
+          "alias": "bottomText",
+          "type": "rte",
+          "config": "dark_general"
+        }
+      ]
+    }
+  ]
+}

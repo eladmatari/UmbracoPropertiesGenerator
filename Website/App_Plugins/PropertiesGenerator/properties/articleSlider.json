@@ -1,0 +1,28 @@
+﻿{
+  "sections": [
+    {
+      "name": "",
+      "alias": "data",
+      "properties": [
+        {
+          "name": "Items",
+          "alias": "items",
+          "type": "list",
+          "headerProperty": "image.alt",
+          "properties": [
+            {
+              "name": "Image",
+              "alias": "image",
+              "type": "image"
+            },
+            {
+              "name": "Link",
+              "alias": "link",
+              "type": "link"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

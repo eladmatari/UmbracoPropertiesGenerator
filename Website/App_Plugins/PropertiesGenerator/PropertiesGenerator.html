@@ -1,0 +1,26 @@
+﻿
+<div id="{{ mainElementId }}" class="propertiesGenerator" ng-controller="PropertiesGeneratorCtrl">
+
+    <div ng-if="!generator">
+        Could not find generator: '{{ model.alias }}'
+    </div>
+
+    <div ng-if="generator">
+        <div ng-show="generator.sections.length > 1">
+            <label>Section:</label>
+            <select ng-options="section as section.name for section in generator.sections track by section.alias" ng-model="currentSection"></select>
+            <hr />
+        </div>
+
+        <div ng-repeat="section in generator.sections" ng-show="section == currentSection">
+            <properties-generator-field 
+                ng-repeat="property in section.properties" 
+                property="property" 
+                model="model.value[section.alias]" 
+                validations="validations">
+            </properties-generator-field>
+        </div>
+        
+        <input type="checkbox" ng-model="isValid" required style="display:none" />
+    </div>    
+</div>
