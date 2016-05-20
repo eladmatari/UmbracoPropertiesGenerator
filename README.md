@@ -1,4 +1,4 @@
-# UmbracoPropertiesGenerator
+# Umbraco Properties Generator
 
 Umbraco Properties Generator lets you create complex ui for marco by defining json properties for fast development
 
