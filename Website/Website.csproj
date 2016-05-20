@@ -363,24 +363,7 @@
     <Content Include="Config\applications.config" />
     <Content Include="Config\404handlers.config" />
     <Content Include="App_Plugins\PropertiesGenerator\package.manifest" />
-    <Content Include="App_Plugins\PropertiesGenerator\properties\articleSlider.json" />
-    <Content Include="App_Plugins\PropertiesGenerator\properties\articlesLinks.json" />
-    <Content Include="App_Plugins\PropertiesGenerator\properties\articlesLinksVertical.json" />
-    <Content Include="App_Plugins\PropertiesGenerator\properties\branchOpenHours.json" />
-    <Content Include="App_Plugins\PropertiesGenerator\properties\contributionArticlesLinks.json" />
-    <Content Include="App_Plugins\PropertiesGenerator\properties\contributionWizard.json" />
-    <Content Include="App_Plugins\PropertiesGenerator\properties\conversationBanner.json" />
     <Content Include="App_Plugins\PropertiesGenerator\properties\demo.json" />
-    <Content Include="App_Plugins\PropertiesGenerator\properties\footer.json" />
-    <Content Include="App_Plugins\PropertiesGenerator\properties\generalBigSlider.json" />
-    <Content Include="App_Plugins\PropertiesGenerator\properties\generalBigSlider.json~RF58c19031.TMP" />
-    <Content Include="App_Plugins\PropertiesGenerator\properties\generalPurposeData.json" />
-    <Content Include="App_Plugins\PropertiesGenerator\properties\homepageArticlesAndKnowledge.json" />
-    <Content Include="App_Plugins\PropertiesGenerator\properties\homepageFindMore.json" />
-    <Content Include="App_Plugins\PropertiesGenerator\properties\homepageSlider.json" />
-    <Content Include="App_Plugins\PropertiesGenerator\properties\recommendations.json" />
-    <Content Include="App_Plugins\PropertiesGenerator\properties\shortInfoBox.json" />
-    <Content Include="App_Plugins\PropertiesGenerator\properties\worldOfKnowledge.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
