@@ -15,7 +15,7 @@ angular.module("umbraco.resources").factory("propertiesGeneratorResource", funct
                     "height": 500
                 },
                 "maxImageSize": 500,
-                "stylesheets": ["style", "responsive", "backoffice"],
+                "stylesheets": [],
                 "toolbar": [
                     "code",
                     "codemirror",
@@ -60,51 +60,7 @@ angular.module("umbraco.resources").factory("propertiesGeneratorResource", funct
                     "height": 500
                 },
                 "maxImageSize": 500,
-                "stylesheets": ["style", "responsive", "backoffice"],
-                "toolbar": [
-                    "code",
-                    "codemirror",
-                    "removeformat",
-                    "undo",
-                    "redo",
-                    "cut",
-                    "copy",
-                    "paste",
-                    "styleselect",
-                    "bold",
-                    "italic",
-                    "underline",
-                    "strikethrough",
-                    "alignleft",
-                    "aligncenter",
-                    "alignright",
-                    "alignjustify",
-                    "bullist",
-                    "numlist",
-                    "outdent",
-                    "indent",
-                    "link",
-                    "unlink",
-                    "anchor",
-                    "umbmediapicker",
-                    "table",
-                    "umbembeddialog",
-                    "hr",
-                    "subscript",
-                    "superscript",
-                    "charmap",
-                    "fontselect",
-                    "fontsizeselect",
-                    "forecolor",
-                    "fullscreen"
-                ]
-            },
-            dark_general: {
-                "dimensions": {
-                    "height": 500
-                },
-                "maxImageSize": 500,
-                "stylesheets": ["style", "responsive", "tinymce-dark", "backoffice"],
+                "stylesheets": [],
                 "toolbar": [
                     "code",
                     "codemirror",
