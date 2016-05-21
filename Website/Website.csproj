@@ -364,6 +364,8 @@
     <Content Include="Config\404handlers.config" />
     <Content Include="App_Plugins\PropertiesGenerator\package.manifest" />
     <Content Include="App_Plugins\PropertiesGenerator\properties\demo.json" />
+    <Content Include="Views\MacroPartials\PropertiesGeneratorDemo.cshtml" />
+    <Content Include="Views\Home.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -401,6 +403,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Plugins\PropertiesGenerator\PropertiesGeneratorExtensions.cs" />
     <Compile Include="App_Plugins\PropertiesGenerator\properties\datasources\DropdownController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
