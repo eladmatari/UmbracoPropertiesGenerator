@@ -1460,6 +1460,7 @@ angular.module("umbraco").controller("PropertiesGeneratorCtrl",
         var self = $scope;
 
         self.generator = null;
+        self.generatorNotFound = false;
         self.currentSection = null;
         self.validations = {};
         self.isValid = true;
@@ -1489,6 +1490,8 @@ angular.module("umbraco").controller("PropertiesGeneratorCtrl",
                 $timeout(function () {
                     $('#' + self.mainElementId + ' :input').trigger('validate');
                 }, 1000);
+            }, function () {
+                self.generatorNotFound = true;
             });
 
         }
