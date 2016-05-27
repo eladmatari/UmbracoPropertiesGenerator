@@ -298,6 +298,201 @@ angular.module("umbraco.directives").directive('propertiesGeneratorFieldInteger'
     }
 });
 
+angular.module("umbraco.directives").directive('propertiesGeneratorFieldDatepicker', function (assetsService, angularHelper, userService) {
+    return {
+        restrict: 'E',
+        replace: true,
+        template: '<span>' +
+            //'<input type="text" ng-model="model[property.alias]" properties-generator-validate />' +
+'<div class="umb-editor umb-datepicker">' +
+    '<ng-form name="datePickerForm">' +
+        '<div class="input-append date datepicker" style="position: relative;" id="datepicker_{{property.id}}">' +
+            '<input name="datepicker" data-format="{{property.config.format}}" id="datepicker_input_{{property.id}}" type="text" ng-model="datetimePickerValue" class="datepickerinput" />' +
+            '<span class="add-on">' +
+                '<i class="icon-calendar"></i>' +
+            '</span>' +
+        '</div>' +
+        '<p ng-show="hasDatetimePickerValue">' +
+            '<a href ng-click="clearDate()"><i class="icon-delete"></i><small><localize key="content_removeDate">Clear date</localize></small></a>' +
+        '</p>' +
+    '</ng-form>' +
+'</div>' +
+        '</span>',
+        scope: {
+            model: '=',
+            property: '=',
+            validations: '='
+        },
+        link: function (scope, element, attrs) {
+
+            //setup the default config
+            var config = {
+                pickDate: true,
+                pickTime: true,
+                useSeconds: true,
+                format: "YYYY-MM-DD HH:mm:ss",
+                icons: {
+                    time: "icon-time",
+                    date: "icon-calendar",
+                    up: "icon-chevron-up",
+                    down: "icon-chevron-down"
+                }
+
+            };
+
+            //map the user config
+            scope.property.config = angular.extend(config, scope.property.config);
+            //ensure the format doesn't get overwritten with an empty string
+            if (scope.property.config.format === "" || scope.property.config.format === undefined || scope.property.config.format === null) {
+                scope.property.config.format = scope.property.config.pickTime ? "YYYY-MM-DD HH:mm:ss" : "YYYY-MM-DD";
+            }
+
+            scope.hasDatetimePickerValue = scope.model[scope.property.alias] ? true : false;
+            scope.datetimePickerValue = null;
+
+            //hide picker if clicking on the document 
+            scope.hidePicker = function () {
+                // Sometimes the statement above fails and generates errors in the browser console. The following statements fix that.
+                var dtp = element.find(".datepicker");
+                if (dtp && dtp.datetimepicker) {
+                    dtp.datetimepicker("hide");
+                }
+            };
+            $(document).bind("click", scope.hidePicker);
+
+            //handles the date changing via the api
+            function applyDate(e) {
+                angularHelper.safeApply(scope, function () {
+                    // when a date is changed, update the model
+                    if (e.date && e.date.isValid()) {
+                        scope.datePickerForm.datepicker.$setValidity("pickerError", true);
+                        scope.hasDatetimePickerValue = true;
+                        scope.datetimePickerValue = e.date.format(scope.property.config.format);
+                        scope.model[scope.property.alias] = scope.datetimePickerValue;
+                    }
+                    else {
+                        scope.hasDatetimePickerValue = false;
+                        scope.datetimePickerValue = null;
+                    }
+
+                    if (!scope.property.config.pickTime) {
+                        element.find(".datepicker").datetimepicker("hide", 0);
+                    }
+                });
+            }
+
+            var picker = null;
+
+            scope.clearDate = function () {
+                scope.hasDatetimePickerValue = false;
+                scope.datetimePickerValue = null;
+                scope.model[scope.property.alias] = null;
+                scope.datePickerForm.datepicker.$setValidity("pickerError", true);
+            }
+
+            //get the current user to see if we can localize this picker
+            userService.getCurrentUser().then(function (user) {
+
+                assetsService.loadCss('lib/datetimepicker/bootstrap-datetimepicker.min.css').then(function () {
+
+                    var filesToLoad = ["lib/moment/moment-with-locales.js",
+                                       "lib/datetimepicker/bootstrap-datetimepicker.js"];
+
+
+                    scope.property.config.language = user.locale;
+
+
+                    assetsService.load(filesToLoad, scope).then(
+                        function () {
+                            //The Datepicker js and css files are available and all components are ready to use.
+
+                            // Get the id of the datepicker button that was clicked
+                            var pickerId = scope.model.alias;
+
+                            var datepickerElement = element.find(".datepicker");
+
+                            // Open the datepicker and add a changeDate eventlistener
+                            datepickerElement
+                                .datetimepicker(angular.extend({ useCurrent: true }, scope.property.config))
+                                .on("dp.change", applyDate)
+                                .on("dp.error", function (a, b, c) {
+                                    scope.hasDatetimePickerValue = false;
+                                    scope.datePickerForm.datepicker.$setValidity("pickerError", false);
+                                });
+
+                            if (scope.hasDatetimePickerValue) {
+                                //assign value to plugin/picker
+                                var dateVal = scope.model[scope.property.alias] ? moment(scope.model[scope.property.alias], "YYYY-MM-DD HH:mm:ss") : moment();
+
+                                datepickerElement.datetimepicker("setValue", dateVal);
+                                scope.datetimePickerValue = dateVal.format(scope.property.config.format);
+                            }
+
+                            datepickerElement.find("input").bind("blur", function () {
+                                var elementData = element.find(".datepicker").data().DateTimePicker;
+                                applyDate(elementData);
+
+                                //we need to force an apply here
+                                scope.$apply();
+                            });
+
+                            //Ensure to remove the event handler when this instance is destroyted
+                            scope.$on('$destroy', function () {
+                                datepickerElement.find("input").unbind("blur");
+                                datepickerElement.datetimepicker("destroy");
+                            });
+
+
+                            //var unsubscribe = function () {
+                            //    if (scope.hasDatetimePickerValue) {
+                            //        var elementData = element.find(".datepicker").data().DateTimePicker;
+                            //        if (scope.property.config.pickTime) {
+                            //            scope.model[scope.property.alias] = elementData.getDate().format("YYYY-MM-DD HH:mm:ss");
+                            //        }
+                            //        else {
+                            //            scope.model[scope.property.alias] = elementData.getDate().format("YYYY-MM-DD");
+                            //        }
+                            //    }
+                            //    else {
+                            //        scope.model[scope.property.alias] = null;
+                            //    }
+                            //};
+
+                            ////unbind doc click event!
+                            //scope.$on('$destroy', function () {
+                            //    unsubscribe();
+                            //});
+
+
+                        });
+                });
+
+            });
+
+            //var unsubscribe = function () {
+            //    if (scope.hasDatetimePickerValue) {
+            //        if (scope.property.config.pickTime) {
+            //            scope.model[scope.property.alias] = element.find(".datepicker").data().DateTimePicker.getDate().format("YYYY-MM-DD HH:mm:ss");
+            //        }
+            //        else {
+            //            scope.model[scope.property.alias] = element.find(".datepicker").data().DateTimePicker.getDate().format("YYYY-MM-DD");
+            //        }
+            //    }
+            //    else {
+            //        scope.model[scope.property.alias] = null;
+            //    }
+            //};
+
+            ////unbind doc click event!
+            //scope.$on('$destroy', function () {
+            //    $(document).unbind("click", scope.hidePicker);
+            //    unsubscribe();
+            //});
+
+        }
+    }
+});
+
 angular.module("umbraco.directives").directive('propertiesGeneratorFieldDate', function () {
     return {
         restrict: 'E',
@@ -508,8 +703,10 @@ angular.module("umbraco.directives").directive('propertiesGeneratorFieldDropdown
                             }
                         }
 
-                        if (!scope.selectedItem)
+                        if (!scope.selectedItem) {
                             scope.selectedItem = scope.items[0];
+                            scope.model[scope.property.alias] = scope.selectedItem.value;
+                        }
 
                     }
                 }
@@ -1049,7 +1246,7 @@ angular.module("umbraco.directives").directive('propertiesGeneratorFieldLink', f
         link: function (scope, element, attrs) {
 
             if (!scope.model[scope.property.alias])
-                scope.model[scope.property.alias] = { link: 'http://' };
+                scope.model[scope.property.alias] = { link: 'http://', isNewWindow: false };
             else {
                 scope.model[scope.property.alias].link = scope.model[scope.property.alias].link;
             }

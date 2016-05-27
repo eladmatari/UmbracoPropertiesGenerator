@@ -29,6 +29,11 @@
           "validate": {
             "customFunction": "function(val, model) { if(val != 'a') return 'value mast be \"a\"'; return null; }"
           }
+        },
+        {
+          "name": "New Date",
+          "alias": "newDate",
+          "type": "datepicker"
         }
       ]
     },
