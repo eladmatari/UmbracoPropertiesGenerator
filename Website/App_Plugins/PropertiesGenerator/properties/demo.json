@@ -29,11 +29,6 @@
           "validate": {
             "customFunction": "function(val, model) { if(val != 'a') return 'value mast be \"a\"'; return null; }"
           }
-        },
-        {
-          "name": "New Date",
-          "alias": "newDate",
-          "type": "datepicker"
         }
       ]
     },
@@ -103,7 +98,7 @@
           "alias": "dropdown",
           "type": "dropdown",
           "datasource": "GetDemo",
-          "show": "scope.model.radio == 'dynamic'"
+          "show": "scope.model.radio == 'dynamic"
         },
         {
           "name": "Dropdown",
@@ -123,7 +118,7 @@
               "value": 3
             }
           ],
-          "show": "scope.model.radio == 'static'"
+          "show": "scope.model.radio == 'static"
         },
         {
           "name": "Date",
@@ -131,6 +126,16 @@
           "type": "date",
           "validate": {
             "format": "dd.MM.yyyy"
+          }
+        },
+        {
+          "name": "Datepicker",
+          "alias": "datepicker",
+          "type": "datepicker",
+          "config": {
+            "format": "DD/MM/YYYY",
+            "pickTime": false,
+            "useSeconds": false
           }
         },
         {
