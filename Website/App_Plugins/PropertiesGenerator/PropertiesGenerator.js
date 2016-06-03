@@ -298,7 +298,7 @@ angular.module("umbraco.directives").directive('propertiesGeneratorFieldInteger'
     }
 });
 
-angular.module("umbraco.directives").directive('propertiesGeneratorFieldDatepicker', function (assetsService, angularHelper, userService) {
+angular.module("umbraco.directives").directive('propertiesGeneratorFieldDatepicker', function (assetsService, angularHelper, userService, $timeout) {
     return {
         restrict: 'E',
         replace: true,
@@ -358,7 +358,14 @@ angular.module("umbraco.directives").directive('propertiesGeneratorFieldDatepick
                     dtp.datetimepicker("hide");
                 }
             };
+
             $(document).bind("click", scope.hidePicker);
+
+            function validate() {
+                $timeout(function () {
+                    element.find(".datepickerinput").trigger('validate');
+                }, 0);
+            }
 
             //handles the date changing via the api
             function applyDate(e) {
@@ -378,6 +385,8 @@ angular.module("umbraco.directives").directive('propertiesGeneratorFieldDatepick
                     if (!scope.property.config.pickTime) {
                         element.find(".datepicker").datetimepicker("hide", 0);
                     }
+
+                    validate();
                 });
             }
 
@@ -388,6 +397,7 @@ angular.module("umbraco.directives").directive('propertiesGeneratorFieldDatepick
                 scope.datetimePickerValue = null;
                 scope.model[scope.property.alias] = null;
                 scope.datePickerForm.datepicker.$setValidity("pickerError", true);
+                validate();
             }
 
             //get the current user to see if we can localize this picker
